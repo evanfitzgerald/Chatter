@@ -1,26 +1,42 @@
 <template>
   <div class="container">
+    <h1 class="card-titles text-center" >yak yak</h1>
     <div class="card login">
       <div class="card-body">
-        <h2 class="card-title text-center">Login</h2>
-        <form @submit.prevent="login" class="text-center">
+        <h2 class="card-title text-center">Sign in</h2>
+        <form @submit.prevent="login" class="text-center" >
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Please enter your name ..." name="name" v-model="name">
+            <input type="text" class="form-control" placeholder="Enter username" name="name" v-model="name">
             <p v-if="errorText" class="text-danger">{{ errorText }}</p>
+          </div>
+          <div class="form-group">
+            <input :type="passwordFieldType" class="form-control" placeholder="Enter password" password="password" v-model="password">
           </div>
           <div id="login">
             <button class="button b1" >Enter Chat</button>
           </div>
         </form>
+        <button class="button b2" type="password" @click="switchVisibility">show / hide</button>
       </div>
     </div>
+    <h5 class="card-title text-center" >New to yak yak?</h5>
+        <form @submit.prevent="login" class="text-center">
+          <div id="git">
+            <button class="button b2" >Sign up</button>
+          </div>
+        </form>
   </div>
-</template><script>export default {
+</template>
+<script>
+
+export default {
   name: 'home',
   data () {
     return {
       name: "",
-      errorText: null
+      errorText: null,
+      password: '',
+      passwordFieldType: 'password'
     }
   },
   methods: {
@@ -30,18 +46,24 @@
       } else {
         this.errorText = "Please enter a name!"
       }
+    },
+    switchVisibility() {
+      this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'
     }
   }
 }
 </script>
 <style>
-.login{
+
+.login {
   max-width: 450px;
   margin-top: 50px;
+  margin-bottom: 50px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+
 .button {
   border: #934cae;
   color: #934cae;
@@ -58,11 +80,15 @@
   font-style: Garamond;
 }
 
-.b1{
+.b1 {
   font-size: 15px;
 }
 
-.b1.button:hover{
+.card-titles {
+  margin-top: 50px;
+}
+
+.b1.button:hover {
   border: #934cae;
   color: white;
   background: #934cae;
@@ -77,5 +103,26 @@
   border-radius: 5px;
   font-style: Garamond;
 }
+
+.b2 {
+  font-size: 15px;
+}
+
+.b2.button:hover {
+  border: #934cae;
+  color: white;
+  background: #934cae;
+  border-style: solid;
+  padding: 6px 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-width: thin;
+  border-radius: 5px;
+  font-style: Garamond;
+}
+
 </style>
 
