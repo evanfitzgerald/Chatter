@@ -16,13 +16,16 @@
             <button class="button b1" >Enter Chat</button>
           </div>
         </form>
-        <button class="button b2" type="password" @click="switchVisibility">show / hide</button>
+        <button type="button" class="button b2" id="eye" @click="switchVisibility">
+            <img src="https://cdn0.iconfinder.com/data/icons/feather/96/eye-16.png" alt="eye" />
+        </button>
       </div>
     </div>
     <h5 class="card-title text-center" >New to yak yak?</h5>
-        <form @submit.prevent="login" class="text-center">
-          <div id="git">
+        <form @submit.prevent="signup" class="text-center">
+          <div id="signup">
             <button class="button b2" >Sign up</button>
+            <p v-if="errorSignText" class="text-danger">{{ errorSignText }}</p>
           </div>
         </form>
   </div>
@@ -35,6 +38,7 @@ export default {
     return {
       name: "",
       errorText: null,
+      errorSignText: null,
       password: '',
       passwordFieldType: 'password'
     }
@@ -44,7 +48,14 @@ export default {
       if (this.name) {
         this.$router.push({name: 'Chat', params: {name: this.name}})
       } else {
-        this.errorText = "Please enter a name!"
+        this.errorText = "Please enter your username!"
+      }
+    },
+    signup() {
+      if (this.name) {
+        this.$router.push({name: 'Chat', params: {name: this.name}})
+      } else {
+        this.errorSignText = "Signup is not ready yet!"
       }
     },
     switchVisibility() {
@@ -123,6 +134,5 @@ export default {
   border-radius: 5px;
   font-style: Garamond;
 }
-
 </style>
 
