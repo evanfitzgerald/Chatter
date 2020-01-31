@@ -1,5 +1,4 @@
-import firebase from 'firebase/app';
-  import firestore from 'firebase/firestore';
+import firebase from 'firebase';
   
   // Initialize Firebase
   var config = {
