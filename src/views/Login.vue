@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="card-titles text-center" >yak yak</h1>
+    <h1 class="card-titles text-center" >Chatter</h1>
     <div class="card login">
       <div class="card-body">
         <h2 class="card-title text-center">Sign in</h2>
@@ -21,7 +21,7 @@
         </button>
       </div>
     </div>
-    <h5 class="card-title text-center" >New to yak yak?</h5>
+    <h5 class="card-title text-center" >New to Chatter?</h5>
         <form @submit.prevent="signup" class="text-center">
           <div id="signup">
             <button class="button b2" >Sign up</button>
